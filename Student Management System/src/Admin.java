@@ -311,7 +311,7 @@ public class Admin extends javax.swing.JFrame {
         pst.setString(1,txtcc.getText());
         pst.executeUpdate();
         */
-       
+       /* tessssstfff*/
         
         
         JOptionPane.showMessageDialog(null,"Saved Successfully");

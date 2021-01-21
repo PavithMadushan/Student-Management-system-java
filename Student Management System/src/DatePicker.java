@@ -6,17 +6,9 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-/**
- *
- * @author PAVITH
- */
+
 public class DatePicker {
     
-    /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
     int month = java.util.Calendar.getInstance().get(java.util.Calendar.MONTH);
     int year = java.util.Calendar.getInstance().get(java.util.Calendar.YEAR);
     
@@ -24,7 +16,6 @@ public class DatePicker {
     String day = "";
     JDialog d;
     JButton[] button = new JButton[49];
-
 
     public DatePicker(JFrame parent) {
         d = new JDialog();
@@ -39,9 +30,7 @@ public class DatePicker {
             button[x].setBackground(Color.white);
             if (x > 6) {
                 button[x].addActionListener(new ActionListener() {
-
-
-                    public void actionPerformed(ActionEvent ae) {
+                   public void actionPerformed(ActionEvent ae) {
                         day = button[selection].getActionCommand();
                         d.dispose();
                     }
@@ -68,7 +57,6 @@ public class DatePicker {
         JButton next = new JButton("Next >>");
         next.addActionListener(new ActionListener() {
 
-
             public void actionPerformed(ActionEvent ae) {
                 month++;
                 displayDate();
@@ -81,9 +69,7 @@ public class DatePicker {
         d.setLocationRelativeTo(parent);
         displayDate();
         d.setVisible(true);
-    }
-
-
+        }
     public void displayDate() {
         for (int x = 7; x < button.length; x++) {
             button[x].setText("");
@@ -99,8 +85,6 @@ public class DatePicker {
         l.setText(sdf.format(cal.getTime()));
         d.setTitle("Calendar");
     }
-
-
     public String setPickedDate() {
         if (day.equals("")) {
             return day;
@@ -111,5 +95,5 @@ public class DatePicker {
         cal.set(year, month, Integer.parseInt(day));
         return sdf.format(cal.getTime());
     }
-}
+    }
     

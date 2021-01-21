@@ -23,7 +23,7 @@ public class Login extends javax.swing.JFrame {
     
     public Login() {
         
-        super("Login");
+        //super("Login");
         initComponents();
         conn=DbConnection.getConnet();
     }
@@ -221,14 +221,22 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnloginActionPerformed
-        // TODO add your handling code here:
+        
+        if(txtun.getText().trim().isEmpty() && txtpsw.getText().trim().isEmpty()){          // When Un and Psw are empty
+            JOptionPane.showMessageDialog(null, "Please Enter Your Username & Password!");
+        } else if(txtun.getText().trim().isEmpty()) {                                       // When Un is empty
+            JOptionPane.showMessageDialog(null, "Please Enter Your Username!");
+        } else if (txtpsw.getText().trim().isEmpty()) {                                     // When Psw is empty
+            JOptionPane.showMessageDialog(null, "Please Enter Your Password!");
+        } else {
+        
         
         try{
             stmt = conn.createStatement();
             String un=txtun.getText();
-            String psw=txtpsw.getText();
+            String psw=Encrypt.Md5encryption(txtpsw.getText());
 
-            String sqlcode="SELECT * FROM admin WHERE ADMIN_NAME='"+un+"' && ADMIN_PW='"+psw+"'";
+            String sqlcode="SELECT * FROM admin WHERE ADMIN_NAME='"+un+"' && ADMIN_PW='"+psw+"'"; //data retrive from Admin table
             System.out.println(sqlcode);
             rs=stmt.executeQuery(sqlcode);
             
@@ -239,13 +247,11 @@ public class Login extends javax.swing.JFrame {
                 obj.setVisible(true);
             }
             else{
-            JOptionPane.showMessageDialog(null,"invalid");
-            
+            JOptionPane.showMessageDialog(null,"Invalid Username or Password !");
             }
-        
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex);
-        }
+        }}
     }//GEN-LAST:event_btnloginActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

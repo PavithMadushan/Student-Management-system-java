@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -14,9 +16,7 @@ import net.proteanit.sql.DbUtils;
  */
 public class Student extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Student
-     */
+    
     Connection conn=null;
     PreparedStatement pst=null;
     ResultSet rs=null;
@@ -24,10 +24,11 @@ public class Student extends javax.swing.JFrame {
     public Student() {
         initComponents();
         setSize(1920,1080);
-        //showTableData();
+                
         
         conn=DbConnection.getConnet();
-         
+        
+        
         showTableData();
         Fillcombo();
     }
@@ -358,7 +359,7 @@ public class Student extends javax.swing.JFrame {
                                 .addComponent(jLabel9)
                                 .addComponent(txtdob, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -371,9 +372,11 @@ public class Student extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12))
         );
 
         pack();
@@ -399,11 +402,10 @@ public class Student extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         int response = JOptionPane.showConfirmDialog(this,"Do you want to insert ?","Confirm",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-        //int res=JOptionPane.showMessageDialog(rootPane, response, title,JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE);
+        
         if(response==JOptionPane.YES_OPTION){
         
-        
-       try{
+              try{
            
            String sqlcode1= "INSERT INTO `student` "
                 + "(`STU_ID`, `STU_FNAME`, `STU_LNAME`,`STU_GEN`,`STU_DOB`,`STU_ADDRESS`)"
@@ -445,7 +447,7 @@ public class Student extends javax.swing.JFrame {
        }
        
        catch(Exception ex){
-           JOptionPane.showMessageDialog(null,ex);
+          JOptionPane.showMessageDialog(null,ex);
            System.out.println(ex);
        }
         }
@@ -562,8 +564,6 @@ public class Student extends javax.swing.JFrame {
         int i = jTable1.getSelectedRow();
         TableModel model=jTable1.getModel();
         
-        
-        
          txtsid.setText(model.getValueAt(i,0).toString());
         txtfname.setText(model.getValueAt(i,1).toString());
         txtlname.setText(model.getValueAt(i,2).toString());
@@ -610,10 +610,16 @@ public class Student extends javax.swing.JFrame {
         
         try{
         
-        String sqlcode="SELECT student.STU_ID AS `Student ID`, student.STU_FNAME AS `First Name`, student.STU_LNAME AS `Last Name`, student.STU_ADDRESS AS `Address`, student.STU_GEN AS `Gender`, student_contact.STU_TELE AS `Telephone`, student.STU_DOB AS `Date of Birth`, course.COURSE_ID AS `Course ID` FROM student, student_contact, enroll, course " +
-                "WHERE student.STU_ID = student_contact.STU_ID and ( student.STU_ID=enroll.STU_ID and enroll.COURSE_ID= course.COURSE_ID)";
+        String sqlcode="SELECT student.STU_ID AS `Student ID`,"+
+                "student.STU_FNAME AS `First Name`, student.STU_LNAME AS `Last Name`, "+
+                "student.STU_ADDRESS AS `Address`, student.STU_GEN AS `Gender`, "+
+                "student_contact.STU_TELE AS `Telephone`, student.STU_DOB AS `Date of Birth`, "+ 
+                "course.COURSE_ID AS `Course ID` FROM student, student_contact, enroll, course " +
+                "WHERE student.STU_ID = student_contact.STU_ID and "+
+                "( student.STU_ID=enroll.STU_ID and enroll.COURSE_ID= course.COURSE_ID)";
         pst=conn.prepareStatement(sqlcode);
         rs=pst.executeQuery();
+        
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));
         
         }
@@ -630,19 +636,18 @@ public class Student extends javax.swing.JFrame {
     private void Fillcombo(){
     
     try{
-    
+       
     String sqlcode="SELECT * FROM course";
     pst=conn.prepareStatement(sqlcode);
     rs=pst.executeQuery();
     
     while(rs.next()){
-        
-    
+        // Aitems in COURSE_ID column in course table    
     String name=rs.getString("COURSE_ID");
+       // Filling the combobox
     cmbcoursecode.addItem(name);
     }
-        
-    
+            
     }catch(Exception ex){
         JOptionPane.showMessageDialog(null,ex);
     }

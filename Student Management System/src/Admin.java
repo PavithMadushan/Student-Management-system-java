@@ -275,6 +275,7 @@ public class Admin extends javax.swing.JFrame {
                 + "(`ADMIN_ID`,`ADMIN_NAME`,`ADMIN_PW`)"
                 + " VALUES (?,?,?);";
         
+           System.out.println(sqlcode1);
          /*  String sqlcode2= "INSERT INTO `teacher_contact` "
                 + "(`TEACH_ID`,`TEACH_TELE`)"
                 + " VALUES (?,?);";
@@ -290,7 +291,8 @@ public class Admin extends javax.swing.JFrame {
         pst=conn.prepareStatement(sqlcode1);
         pst.setString(1,txtsid.getText());
         pst.setString(2,txtfname.getText());
-        pst.setString(3,txtlname.getText());
+        pst.setString(3,Encrypt.Md5encryption(txtlname.getText()));
+        pst.executeUpdate();
        // pst.setString(4,txtadd.getText());
         //pst.setString(5,txtgen.getText());
         //pst.setString(6,txttel.getText());
@@ -316,11 +318,13 @@ public class Admin extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null,"Saved Successfully");
         showTableData();
+        System.out.println(sqlcode1);
        }
        
        catch(Exception ex){
            JOptionPane.showMessageDialog(null,ex);
            System.out.println(ex);
+           
        }
         }
     }//GEN-LAST:event_btninsertActionPerformed
@@ -449,7 +453,7 @@ public class Admin extends javax.swing.JFrame {
         // TODO add your handling code here:
         try{
         
-        String sqlcode="SELECT * FROM admin WHERE ADMIN_ID='"+txtsid.getText()+"'";
+        String sqlcode="SELECT ADMIN_ID,ADMIN_NAME FROM admin WHERE ADMIN_ID='"+txtsid.getText()+"'";
         
         pst=conn.prepareStatement(sqlcode);
         //pst.setString(1,txtsid.getText());
@@ -477,7 +481,7 @@ public class Admin extends javax.swing.JFrame {
         
         try{
         
-        String sqlcode="SELECT ADMIN_ID AS `Admin ID`,ADMIN_NAME AS `Username`,ADMIN_PW AS `Password` FROM admin;";
+        String sqlcode="SELECT ADMIN_ID AS `Admin ID`,ADMIN_NAME AS `Username`FROM admin ORDER BY ADMIN_ID;";
         pst=conn.prepareStatement(sqlcode);
         rs=pst.executeQuery();
         jTable1.setModel(DbUtils.resultSetToTableModel(rs));

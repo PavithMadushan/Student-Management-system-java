@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -104,7 +105,7 @@ public class Menue extends javax.swing.JFrame {
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -233,6 +234,11 @@ public class Menue extends javax.swing.JFrame {
         );
 
         pnltimetable.setBackground(new java.awt.Color(0, 102, 102));
+        pnltimetable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnltimetableMouseClicked(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel13.setText("Time table");
@@ -264,6 +270,11 @@ public class Menue extends javax.swing.JFrame {
         );
 
         pnltimetable1.setBackground(new java.awt.Color(0, 102, 102));
+        pnltimetable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pnltimetable1MouseClicked(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel15.setText("     Fees");
@@ -401,6 +412,7 @@ public class Menue extends javax.swing.JFrame {
                 Teacher obj=new Teacher();
                 obj.setVisible(true);
                 start();
+                obj.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
     }//GEN-LAST:event_pnlteachersMouseClicked
 
     private void pnlcoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlcoursesMouseClicked
@@ -421,15 +433,31 @@ public class Menue extends javax.swing.JFrame {
 
     private void pnlstudents1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnlstudents1MouseClicked
         // TODO add your handling code here:
+        
         setVisible(false);
-       Admin obj=new Admin();
+        Admin obj=new Admin();
         obj.setVisible(true);
+        
     }//GEN-LAST:event_pnlstudents1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void pnltimetable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnltimetable1MouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+        Fees obj=new Fees();
+        obj.setVisible(true);
+    }//GEN-LAST:event_pnltimetable1MouseClicked
+
+    private void pnltimetableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pnltimetableMouseClicked
+        // TODO add your handling code here:
+        setVisible(false);
+        Timetable obj=new Timetable();
+        obj.setVisible(true);
+    }//GEN-LAST:event_pnltimetableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -438,7 +466,7 @@ public class Menue extends javax.swing.JFrame {
     
     public void start(){
         
-    try{
+   try{
             stmt = conn.createStatement();
            // String un=txtun.getText();
             //String psw=txtpsw.getText();
@@ -459,7 +487,7 @@ public class Menue extends javax.swing.JFrame {
             }
         
         }catch(Exception ex){
-            JOptionPane.showMessageDialog(null, ex);
+         //  JOptionPane.showMessageDialog(null, ex);
         }
     
     

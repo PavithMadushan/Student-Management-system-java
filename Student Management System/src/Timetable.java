@@ -30,9 +30,9 @@ public class Timetable extends javax.swing.JFrame {
     CardLayout car;
     public Timetable() {
         initComponents();
-        setSize(500,500);
+        setSize(1000,1000);
         conn=DbConnection.getConnet();
-        Component [] components=this.getContentPane().getComponents();
+      /*  Component [] components=this.getContentPane().getComponents();
         
         for(Component component : components){
         
@@ -44,7 +44,7 @@ public class Timetable extends javax.swing.JFrame {
             
         }
         
-         car = (CardLayout)(pnlCards.getLayout());
+         car = (CardLayout)(pnlCards.getLayout());*/
     }
 
     /**
@@ -66,16 +66,32 @@ public class Timetable extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        jButton9 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         pnlCards = new javax.swing.JPanel();
         pnlmon = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
         pnltue = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         pnlwed = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTable7 = new javax.swing.JTable();
         pnlthu = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        jTable8 = new javax.swing.JTable();
         pnlfri = new javax.swing.JPanel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        jTable9 = new javax.swing.JTable();
         pnlsat = new javax.swing.JPanel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        jTable10 = new javax.swing.JTable();
         pnlsun = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable11 = new javax.swing.JTable();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -178,112 +194,68 @@ public class Timetable extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 102));
 
+        jButton9.setBackground(new java.awt.Color(0, 102, 102));
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_arrow_pointing_left_52px.png"))); // NOI18N
+        jButton9.setBorder(null);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 102, 102));
+        jButton2.setText("X");
+        jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel1.setText("Time table");
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons8_time_machine_100px_1.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 111, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlCards.setLayout(new java.awt.CardLayout());
 
         pnlmon.setBackground(new java.awt.Color(204, 255, 204));
 
-        javax.swing.GroupLayout pnlmonLayout = new javax.swing.GroupLayout(pnlmon);
-        pnlmon.setLayout(pnlmonLayout);
-        pnlmonLayout.setHorizontalGroup(
-            pnlmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
-        );
-        pnlmonLayout.setVerticalGroup(
-            pnlmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-        );
-
-        pnlCards.add(pnlmon, "card2");
-
-        pnltue.setBackground(new java.awt.Color(255, 255, 204));
-
-        javax.swing.GroupLayout pnltueLayout = new javax.swing.GroupLayout(pnltue);
-        pnltue.setLayout(pnltueLayout);
-        pnltueLayout.setHorizontalGroup(
-            pnltueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
-        );
-        pnltueLayout.setVerticalGroup(
-            pnltueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-        );
-
-        pnlCards.add(pnltue, "card2");
-
-        pnlwed.setBackground(new java.awt.Color(255, 204, 204));
-
-        javax.swing.GroupLayout pnlwedLayout = new javax.swing.GroupLayout(pnlwed);
-        pnlwed.setLayout(pnlwedLayout);
-        pnlwedLayout.setHorizontalGroup(
-            pnlwedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
-        );
-        pnlwedLayout.setVerticalGroup(
-            pnlwedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-        );
-
-        pnlCards.add(pnlwed, "card2");
-
-        pnlthu.setBackground(new java.awt.Color(255, 204, 255));
-
-        javax.swing.GroupLayout pnlthuLayout = new javax.swing.GroupLayout(pnlthu);
-        pnlthu.setLayout(pnlthuLayout);
-        pnlthuLayout.setHorizontalGroup(
-            pnlthuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
-        );
-        pnlthuLayout.setVerticalGroup(
-            pnlthuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-        );
-
-        pnlCards.add(pnlthu, "card2");
-
-        pnlfri.setBackground(new java.awt.Color(204, 204, 255));
-
-        javax.swing.GroupLayout pnlfriLayout = new javax.swing.GroupLayout(pnlfri);
-        pnlfri.setLayout(pnlfriLayout);
-        pnlfriLayout.setHorizontalGroup(
-            pnlfriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
-        );
-        pnlfriLayout.setVerticalGroup(
-            pnlfriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-        );
-
-        pnlCards.add(pnlfri, "card2");
-
-        pnlsat.setBackground(new java.awt.Color(204, 255, 255));
-
-        javax.swing.GroupLayout pnlsatLayout = new javax.swing.GroupLayout(pnlsat);
-        pnlsat.setLayout(pnlsatLayout);
-        pnlsatLayout.setHorizontalGroup(
-            pnlsatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 806, Short.MAX_VALUE)
-        );
-        pnlsatLayout.setVerticalGroup(
-            pnlsatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 534, Short.MAX_VALUE)
-        );
-
-        pnlCards.add(pnlsat, "card2");
-
-        pnlsun.setBackground(new java.awt.Color(204, 204, 204));
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -294,21 +266,224 @@ public class Timetable extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane8.setViewportView(jTable5);
+
+        javax.swing.GroupLayout pnlmonLayout = new javax.swing.GroupLayout(pnlmon);
+        pnlmon.setLayout(pnlmonLayout);
+        pnlmonLayout.setHorizontalGroup(
+            pnlmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlmonLayout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(260, Short.MAX_VALUE))
+        );
+        pnlmonLayout.setVerticalGroup(
+            pnlmonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlmonLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
+        );
+
+        pnlCards.add(pnlmon, "card2");
+
+        pnltue.setBackground(new java.awt.Color(255, 255, 204));
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(jTable6);
+
+        javax.swing.GroupLayout pnltueLayout = new javax.swing.GroupLayout(pnltue);
+        pnltue.setLayout(pnltueLayout);
+        pnltueLayout.setHorizontalGroup(
+            pnltueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnltueLayout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
+        );
+        pnltueLayout.setVerticalGroup(
+            pnltueLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnltueLayout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+
+        pnlCards.add(pnltue, "card2");
+
+        pnlwed.setBackground(new java.awt.Color(255, 204, 204));
+
+        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(jTable7);
+
+        javax.swing.GroupLayout pnlwedLayout = new javax.swing.GroupLayout(pnlwed);
+        pnlwed.setLayout(pnlwedLayout);
+        pnlwedLayout.setHorizontalGroup(
+            pnlwedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlwedLayout.createSequentialGroup()
+                .addGap(195, 195, 195)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(203, Short.MAX_VALUE))
+        );
+        pnlwedLayout.setVerticalGroup(
+            pnlwedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlwedLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
+        );
+
+        pnlCards.add(pnlwed, "card2");
+
+        pnlthu.setBackground(new java.awt.Color(255, 204, 255));
+
+        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane11.setViewportView(jTable8);
+
+        javax.swing.GroupLayout pnlthuLayout = new javax.swing.GroupLayout(pnlthu);
+        pnlthu.setLayout(pnlthuLayout);
+        pnlthuLayout.setHorizontalGroup(
+            pnlthuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlthuLayout.createSequentialGroup()
+                .addGap(179, 179, 179)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(219, Short.MAX_VALUE))
+        );
+        pnlthuLayout.setVerticalGroup(
+            pnlthuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlthuLayout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(71, 71, 71))
+        );
+
+        pnlCards.add(pnlthu, "card2");
+
+        pnlfri.setBackground(new java.awt.Color(204, 204, 255));
+
+        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane12.setViewportView(jTable9);
+
+        javax.swing.GroupLayout pnlfriLayout = new javax.swing.GroupLayout(pnlfri);
+        pnlfri.setLayout(pnlfriLayout);
+        pnlfriLayout.setHorizontalGroup(
+            pnlfriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlfriLayout.createSequentialGroup()
+                .addGap(163, 163, 163)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(235, Short.MAX_VALUE))
+        );
+        pnlfriLayout.setVerticalGroup(
+            pnlfriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlfriLayout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65))
+        );
+
+        pnlCards.add(pnlfri, "card2");
+
+        pnlsat.setBackground(new java.awt.Color(204, 255, 255));
+
+        jTable10.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane13.setViewportView(jTable10);
+
+        javax.swing.GroupLayout pnlsatLayout = new javax.swing.GroupLayout(pnlsat);
+        pnlsat.setLayout(pnlsatLayout);
+        pnlsatLayout.setHorizontalGroup(
+            pnlsatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlsatLayout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(232, Short.MAX_VALUE))
+        );
+        pnlsatLayout.setVerticalGroup(
+            pnlsatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlsatLayout.createSequentialGroup()
+                .addContainerGap(66, Short.MAX_VALUE)
+                .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
+        );
+
+        pnlCards.add(pnlsat, "card2");
+
+        pnlsun.setBackground(new java.awt.Color(204, 204, 204));
+
+        jTable11.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jTable11);
 
         javax.swing.GroupLayout pnlsunLayout = new javax.swing.GroupLayout(pnlsun);
         pnlsun.setLayout(pnlsunLayout);
         pnlsunLayout.setHorizontalGroup(
             pnlsunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlsunLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 785, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 21, Short.MAX_VALUE))
+                .addGap(116, 116, 116)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 545, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(189, Short.MAX_VALUE))
         );
         pnlsunLayout.setVerticalGroup(
             pnlsunLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlsunLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 39, Short.MAX_VALUE))
+                .addGap(68, 68, 68)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pnlCards.add(pnlsun, "card2");
@@ -409,18 +584,39 @@ public class Timetable extends javax.swing.JFrame {
         showTableData("Sunday");
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+
+        setVisible(false);
+        Menue obj=new Menue();
+        obj.setVisible(true);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     
     public void showTableData(String day){
         
         try{
         
-        String sqlcode="SELECT course.COURSE_ID,course.COURSE_NAME, teacher.TEACH_FNAME,course.COURSE_TIME "+
-"FROM teacher,conduct,course "+
-"WHERE course.COURSE_ID=conduct.COURSE_ID && teacher.TEACH_ID=conduct.TEACH_ID && course.COURSE_DATE=`"+day+"`;";
-        System.out.println(sqlcode);
+        String day2;
+       day2=day;
+            System.out.println(day2);
+       String sqlcode="SELECT course.COURSE_ID AS `Course_ID`,course.COURSE_NAME AS `Course Name`, teacher.TEACH_FNAME AS `Teacher Name`,course.COURSE_TIME AS `Time` FROM  teacher,conduct,course WHERE course.COURSE_ID=conduct.COURSE_ID && teacher.TEACH_ID=conduct.TEACH_ID && course.COURSE_DATE='"+day2+"'";
+            System.out.println("sqlcode");
+   
         pst=conn.prepareStatement(sqlcode);
         rs=pst.executeQuery();
-        jTable1.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable5.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable6.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable7.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable8.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable9.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable10.setModel(DbUtils.resultSetToTableModel(rs));
+        jTable11.setModel(DbUtils.resultSetToTableModel(rs));
         
             
         
@@ -476,17 +672,33 @@ public class Timetable extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTable jTable10;
+    private javax.swing.JTable jTable11;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
+    private javax.swing.JTable jTable7;
+    private javax.swing.JTable jTable8;
+    private javax.swing.JTable jTable9;
     private javax.swing.JPanel pnlCards;
     private javax.swing.JPanel pnlfri;
     private javax.swing.JPanel pnlmon;

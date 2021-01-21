@@ -29,7 +29,7 @@ public class Teacher extends javax.swing.JFrame {
         conn=DbConnection.getConnet();
          
         showTableData();
-      //  Fillcombo();
+       Fillcombo();
     }
 
     /**
@@ -574,7 +574,7 @@ public class Teacher extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   /* private void Fillcombo(){
+    private void Fillcombo(){
     
     try{
     
@@ -593,7 +593,7 @@ public class Teacher extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null,ex);
     }
     
-    }*/
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
